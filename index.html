@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>N.D — Studio / Archive</title>
+    <meta name="description" content="N.D — Vancouver-based creative explorer. Branding, motion, UI/UX.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "international-orange": "#FF4F00",
+                        "inverse-primary": "#c8c5cd",
+                        "on-background": "#1a1c1c",
+                        "surface-container": "#eeeeee",
+                        "secondary": "#5e5e5e",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f9f9f9",
+                        "tertiary-container": "#1a1c1c",
+                        "outline-variant": "#c8c5cb",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-error-container": "#93000a",
+                        "primary-fixed": "#e4e1e9",
+                        "secondary-fixed": "#e3e2e2",
+                        "primary-fixed-dim": "#c8c5cd",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "tertiary-fixed-dim": "#c6c6c6",
+                        "on-tertiary-container": "#838484",
+                        "secondary-container": "#e3e2e2",
+                        "on-secondary-container": "#646464",
+                        "on-primary-fixed-variant": "#47464d",
+                        "on-primary-container": "#85838a",
+                        "secondary-fixed-dim": "#c7c6c6",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#1b1b21",
+                        "surface-variant": "#e2e2e2",
+                        "surface-tint": "#5f5d65",
+                        "on-secondary-fixed-variant": "#464747",
+                        "on-surface": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#000000",
+                        "outline": "#78767b",
+                        "surface-container-high": "#e8e8e8",
+                        "inverse-on-surface": "#f0f1f1",
+                        "tertiary": "#000000",
+                        "on-surface-variant": "#47464b",
+                        "background": "#f9f9f9",
+                        "surface-container-low": "#f3f3f4",
+                        "on-primary-fixed": "#1b1b21",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#2f3131",
+                        "surface": "#f9f9f9",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "error": "#ba1a1a"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Space Grotesk", "sans-serif"]
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f9f9f9;
+            -webkit-font-smoothing: antialiased;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* View Switcher */
+        #detail-view { display: none; }
+        #detail-view.is-open {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Project Card Title Alignment Fix */
+        .card-title {
+            min-height: 2.2em; /* Ensures 2 lines height across all cards for perfect alignment */
+        }
+
+        /* Detail View Typographic Tweaks */
+        .uscore {
+            font-weight: 300;
+            opacity: 0.4;
+            display: inline-block;
+            transform: translateY(-0.15em);
+        }
+    </style>
+</head>
+<body class="text-on-background selection:bg-international-orange selection:text-white font-body">
+
+    <!-- ══ NAV ══ -->
+    <nav class="fixed top-0 left-0 right-0 w-full z-[9999] border-b border-outline-variant/20 transition-all duration-300" style="background-color: rgba(249, 249, 249, 0.95); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);">
+        <div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
+            <a class="text-xl font-bold tracking-tighter text-black font-headline cursor-pointer hover:text-international-orange transition-colors" onclick="scrollToSection('top')">N.D</a>
+            <div class="hidden md:flex space-x-12 items-center">
+                <a class="font-label uppercase tracking-widest text-xs text-secondary hover:text-international-orange transition-colors cursor-pointer" onclick="scrollToSection('work')">Work</a>
+                <a class="font-label uppercase tracking-widest text-xs text-secondary hover:text-international-orange transition-colors cursor-pointer" onclick="scrollToSection('about')">Profile</a>
+                <a class="font-label uppercase tracking-widest text-xs text-secondary hover:text-international-orange transition-colors cursor-pointer" onclick="scrollToSection('contact')">Contact</a>
+            </div>
+            <!-- Mobile Menu -->
+            <button class="md:hidden text-black" onclick="scrollToSection('work')">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Back to top button -->
+    <button aria-label="Back to top" id="back-to-top" class="fixed bottom-8 right-8 z-[9000] group w-12 h-12 flex items-center justify-center bg-white border hover:border-international-orange transition-all duration-300 shadow-sm border-outline-variant opacity-0 pointer-events-none translate-y-4">
+        <span class="material-symbols-outlined group-hover:text-international-orange transition-colors duration-300 text-primary font-light">north</span>
+    </button>
+
+    <!-- ════════ MAIN HOME VIEW ════════ -->
+    <div id="home-view">
+        <main class="pt-32">
+            
+            <!-- ── HERO ── -->
+            <section id="top" class="px-8 max-w-screen-2xl mx-auto mb-32 md:mb-52" style="scroll-margin-top: 100px;">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
+                    <div class="md:col-span-8">
+                        <span class="font-label text-xs tracking-[0.3em] uppercase text-international-orange mb-8 block">SYS_LOC: VANCOUVER / AVAILABILITY: TRUE</span>
+                        <h1 class="font-headline text-5xl md:text-[8rem] lg:text-[9rem] leading-[0.85] font-bold tracking-tighter text-black uppercase">
+                            NOT A <span class="text-stone-300">DESIGNER,</span><br/>
+                            BUT AN <span class="text-international-orange">EXPLORER.</span>
+                        </h1>
+                    </div>
+                    <div class="md:col-span-4 flex flex-col items-start md:items-end">
+                        <p class="font-label text-xs tracking-widest text-secondary uppercase md:text-right leading-relaxed max-w-[280px]">
+                            Translating complex brand challenges into clear, functional expeditions. Blending international grit with purposeful visual destinations.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── WORK Section (Standard Grid) ── -->
+            <section id="work" class="bg-surface-container-low py-24 md:py-40" style="scroll-margin-top: 52px;">
+                <div class="px-8 max-w-screen-2xl mx-auto">
+                    <div class="flex justify-between items-baseline mb-20 border-b border-outline-variant/30 pb-8">
+                        <h2 class="font-headline text-3xl md:text-5xl font-medium uppercase tracking-tight">Expeditions</h2>
+                        <span class="font-label text-[10px] tracking-[0.2em] text-secondary uppercase">04 Active Projects</span>
+                    </div>
+
+                    <!-- Standardized Grid (Aligned to top, uniform heights) -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
+                        
+                        <!-- Project 01 -->
+                        <div class="group cursor-pointer flex flex-col" onclick="openProject('scmp-lighthouse')">
+                            <div class="mb-6 flex flex-col md:flex-row md:justify-between md:items-end gap-3">
+                                <span class="font-label text-xs md:text-sm uppercase tracking-widest group-hover:text-international-orange transition-colors duration-500">01 / SCMP LIGHTHOUSE</span>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-label text-[10px] text-secondary uppercase group-hover:text-international-orange transition-colors duration-500">Motion & Brand</span>
+                                </div>
+                            </div>
+                            <div class="relative aspect-[4/3] bg-surface-container overflow-hidden border border-outline-variant/30 w-full">
+                                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="SCMP Lighthouse" src="https://i.imgur.com/Y85CXlD.jpeg"/>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1">
+                                <h3 class="font-headline text-2xl font-bold uppercase tracking-tight card-title mb-2 group-hover:text-international-orange transition-colors duration-300">SCMP_Lighthouse</h3>
+                                <p class="text-sm text-secondary leading-relaxed">Visual synthesis of Eastern and Western perspectives for the Post's flagship platform.</p>
+                            </div>
+                        </div>
+
+                        <!-- Project 02 -->
+                        <div class="group cursor-pointer flex flex-col" onclick="openProject('tai-kwun')">
+                            <div class="mb-6 flex flex-col md:flex-row md:justify-between md:items-end gap-3">
+                                <span class="font-label text-xs md:text-sm uppercase tracking-widest group-hover:text-international-orange transition-colors duration-500">02 / TAI KWUN</span>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-label text-[10px] text-secondary uppercase group-hover:text-international-orange transition-colors duration-500">Motion Identity</span>
+                                </div>
+                            </div>
+                            <div class="relative aspect-[4/3] bg-surface-container overflow-hidden border border-outline-variant/30 w-full">
+                                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Tai Kwun Branding" src="https://i.imgur.com/ettMQSd.jpeg"/>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1">
+                                <h3 class="font-headline text-2xl font-bold uppercase tracking-tight card-title mb-2 group-hover:text-international-orange transition-colors duration-300">Tai_Kwun_Branding</h3>
+                                <p class="text-sm text-secondary leading-relaxed">Motion identity for Hong Kong's premier heritage arts venue.</p>
+                            </div>
+                        </div>
+
+                        <!-- Project 03 -->
+                        <div class="group cursor-pointer flex flex-col" onclick="openProject('cosmo-beauty')">
+                            <div class="mb-6 flex flex-col md:flex-row md:justify-between md:items-end gap-3">
+                                <span class="font-label text-xs md:text-sm uppercase tracking-widest group-hover:text-international-orange transition-colors duration-500">03 / BEST OF THE BEST</span>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-label text-[10px] text-secondary uppercase group-hover:text-international-orange transition-colors duration-500">Digital & Social</span>
+                                </div>
+                            </div>
+                            <div class="relative aspect-[4/3] bg-surface-container overflow-hidden border border-outline-variant/30 w-full">
+                                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="Cosmo Beauty Awards" src="https://i.imgur.com/5vSUMLT.jpeg"/>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1">
+                                <h3 class="font-headline text-2xl font-bold uppercase tracking-tight card-title mb-2 group-hover:text-international-orange transition-colors duration-300">Best_of_the_Best</h3>
+                                <p class="text-sm text-secondary leading-relaxed">Full campaign identity and mobile-first voting UI for Cosmopolitan HK.</p>
+                            </div>
+                        </div>
+
+                        <!-- Project 04 -->
+                        <div class="group cursor-pointer flex flex-col" onclick="openProject('hkwalls')">
+                            <div class="mb-6 flex flex-col md:flex-row md:justify-between md:items-end gap-3">
+                                <span class="font-label text-xs md:text-sm uppercase tracking-widest group-hover:text-international-orange transition-colors duration-500">04 / HKWALLS SAMSARA</span>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-label text-[10px] text-secondary uppercase group-hover:text-international-orange transition-colors duration-500">Motion Art</span>
+                                </div>
+                            </div>
+                            <div class="relative aspect-[4/3] bg-surface-container overflow-hidden border border-outline-variant/30 w-full">
+                                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" alt="HKWALLS SAMSARA" src="https://i.imgur.com/2rdu6jo.jpeg"/>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1">
+                                <h3 class="font-headline text-2xl font-bold uppercase tracking-tight card-title mb-2 group-hover:text-international-orange transition-colors duration-300">HKWALLS_2024_SAMSARA</h3>
+                                <p class="text-sm text-secondary leading-relaxed">4,000 sqm LED façade animation for HKWALLS Street Art Festival.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── PROFILE / ABOUT ── -->
+            <section id="about" class="px-8 max-w-screen-2xl mx-auto py-32 md:py-48" style="scroll-margin-top: 52px;">
+                <!-- Profile Narrative -->
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 mb-40">
+                    <div class="md:col-span-5 aspect-[3/4] bg-surface-container-highest overflow-hidden border border-outline-variant/30">
+                        <!-- Profile Image Placeholder -->
+                    </div>
+                    <div class="md:col-span-7 flex flex-col justify-center">
+                        <div class="max-w-xl">
+                            <label class="font-label text-[10px] tracking-[0.3em] uppercase text-international-orange mb-12 block">01 / NARRATIVE</label>
+                            <h2 class="font-headline text-3xl md:text-5xl font-medium tracking-tight text-black mb-10 leading-tight">
+                                Bridging the visual language of two very different worlds.
+                            </h2>
+                            <div class="space-y-6 text-secondary leading-[1.8] font-body text-base md:text-lg">
+                                <p>
+                                    I'm a Hong Kong-born creative now based in Vancouver, BC. With a background spanning branding, motion graphics, and digital design, I've worked with publishers, cultural institutions and lifestyle brands across Asia and beyond.
+                                </p>
+                                <p>
+                                    My process is rooted in curiosity — I explore first, then distil. I believe in translating complex ideas into timeless, functional digital artifacts that respect the user's focus.
+                                </p>
+                                <p>
+                                    When I'm not designing, I'm probably hunting for good coffee, exploring new neighbourhoods, or shooting on film.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Expertise -->
+                <div class="border-t border-outline-variant/30 pt-16 mb-40">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                        <div class="md:col-span-4">
+                            <label class="font-label text-[10px] tracking-[0.3em] uppercase text-international-orange sticky top-32">02 / CORE EXPERTISE</label>
+                        </div>
+                        <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-12 md:gap-x-24 md:gap-y-24">
+                            <div>
+                                <h3 class="font-headline text-xl font-bold uppercase tracking-tight mb-4 flex items-center gap-3"><span class="w-1.5 h-1.5 bg-international-orange inline-block"></span>Brand Identity</h3>
+                                <p class="text-secondary text-sm leading-relaxed">Crafting resonant brand systems through the lens of a maker. Building frameworks that breathe life into static identities.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-headline text-xl font-bold uppercase tracking-tight mb-4 flex items-center gap-3"><span class="w-1.5 h-1.5 bg-international-orange inline-block"></span>Motion Graphics</h3>
+                                <p class="text-secondary text-sm leading-relaxed">Developing fluid, dynamic visual narratives. Specializing in kinetic typography and immersive storytelling.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-headline text-xl font-bold uppercase tracking-tight mb-4 flex items-center gap-3"><span class="w-1.5 h-1.5 bg-international-orange inline-block"></span>UI / UX Design</h3>
+                                <p class="text-secondary text-sm leading-relaxed">Structural design for digital platforms. Prioritizing clear information hierarchy and intuitive user journeys.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-headline text-xl font-bold uppercase tracking-tight mb-4 flex items-center gap-3"><span class="w-1.5 h-1.5 bg-international-orange inline-block"></span>Digital Strategy</h3>
+                                <p class="text-secondary text-sm leading-relaxed">Translating brand objectives into engaging, short-form digital experiences and comprehensive social content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experience Table -->
+                <div class="border-t border-outline-variant/30 pt-16">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                        <div class="md:col-span-4">
+                            <label class="font-label text-[10px] tracking-[0.3em] uppercase text-international-orange sticky top-32">03 / EXPERIENCE</label>
+                        </div>
+                        <div class="md:col-span-8 overflow-x-auto no-scrollbar">
+                            <table class="w-full text-left font-headline min-w-[500px]">
+                                <thead>
+                                    <tr class="text-[10px] tracking-[0.2em] text-secondary uppercase border-b border-outline-variant/30">
+                                        <th class="pb-6 font-medium w-1/4">Period</th>
+                                        <th class="pb-6 font-medium">Studio / Client</th>
+                                        <th class="pb-6 font-medium text-right w-1/3">Role</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-outline-variant/30">
+                                    <tr class="group hover:bg-surface-container-high transition-colors">
+                                        <td class="py-8 text-sm text-secondary group-hover:text-international-orange transition-colors">2026 — Present</td>
+                                        <td class="py-8 text-lg font-bold">Independent <span class="block text-xs text-secondary font-normal mt-1">Vancouver, BC</span></td>
+                                        <td class="py-8 text-sm text-right text-secondary uppercase tracking-widest">Freelance Creator</td>
+                                    </tr>
+                                    <tr class="group hover:bg-surface-container-high transition-colors">
+                                        <td class="py-8 text-sm text-secondary group-hover:text-international-orange transition-colors">2025</td>
+                                        <td class="py-8 text-lg font-bold">852 Kitchen <span class="block text-xs text-secondary font-normal mt-1">Vancouver, BC</span></td>
+                                        <td class="py-8 text-sm text-right text-secondary uppercase tracking-widest">Digital Content Creator</td>
+                                    </tr>
+                                    <tr class="group hover:bg-surface-container-high transition-colors">
+                                        <td class="py-8 text-sm text-secondary group-hover:text-international-orange transition-colors">2024 — 2025</td>
+                                        <td class="py-8 text-lg font-bold">Rush Graphic Ltd <span class="block text-xs text-secondary font-normal mt-1">Vancouver, BC</span></td>
+                                        <td class="py-8 text-sm text-right text-secondary uppercase tracking-widest">Graphic Designer</td>
+                                    </tr>
+                                    <tr class="group hover:bg-surface-container-high transition-colors">
+                                        <td class="py-8 text-sm text-secondary group-hover:text-international-orange transition-colors">2020 — 2024</td>
+                                        <td class="py-8 text-lg font-bold">Cosmopolitan HK <span class="block text-xs text-secondary font-normal mt-1">Hong Kong</span></td>
+                                        <td class="py-8 text-sm text-right text-secondary uppercase tracking-widest">Lead Digital Designer</td>
+                                    </tr>
+                                    <tr class="group hover:bg-surface-container-high transition-colors">
+                                        <td class="py-8 text-sm text-secondary group-hover:text-international-orange transition-colors">2019 — 2020</td>
+                                        <td class="py-8 text-lg font-bold">Cosmopolitan HK &amp; <br> Harper's Bazaar HK <span class="block text-xs text-secondary font-normal mt-1">Hong Kong</span></td>
+                                        <td class="py-8 text-sm text-right text-secondary uppercase tracking-widest">Senior Digital Designer</td>
+                                    </tr>
+                                    <tr class="group hover:bg-surface-container-high transition-colors">
+                                        <td class="py-8 text-sm text-secondary group-hover:text-international-orange transition-colors">2017 — 2019</td>
+                                        <td class="py-8 text-lg font-bold">Cosmopolitan HK <span class="block text-xs text-secondary font-normal mt-1">Hong Kong</span></td>
+                                        <td class="py-8 text-sm text-right text-secondary uppercase tracking-widest">Digital Designer</td>
+                                    </tr>
+                                    <tr class="group hover:bg-surface-container-high transition-colors">
+                                        <td class="py-8 text-sm text-secondary group-hover:text-international-orange transition-colors">2015 — 2017</td>
+                                        <td class="py-8 text-lg font-bold">eMotionLab <span class="block text-xs text-secondary font-normal mt-1">Hong Kong</span></td>
+                                        <td class="py-8 text-sm text-right text-secondary uppercase tracking-widest">Graphic Designer</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ── CONTACT ── -->
+            <section id="contact" class="bg-surface-container-low py-20 md:py-24" style="scroll-margin-top: 52px;">
+                <div class="px-8 max-w-screen-2xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+                        <div class="md:col-span-4">
+                            <label class="font-label text-[10px] tracking-[0.3em] uppercase text-international-orange sticky top-32">04 / CONNECTIVITY</label>
+                        </div>
+                        <div class="md:col-start-8 md:col-span-5 flex flex-col gap-8 md:gap-10">
+                            <!-- Direct Inquiries -->
+                            <section>
+                                <h3 class="font-label text-[10px] tracking-[0.3em] uppercase text-secondary mb-3">MAIL</h3>
+                                <div>
+                                    <a href="mailto:hahaiamandy@gmail.com" class="font-headline text-base md:text-lg font-bold uppercase tracking-tight hover:text-international-orange transition-colors cursor-pointer inline-block border-b border-transparent hover:border-international-orange pb-0.5">hahaiamandy@gmail.com</a>
+                                </div>
+                            </section>
+                            
+                            <!-- Socials -->
+                            <section>
+                                <h3 class="font-label text-[10px] tracking-[0.3em] uppercase text-secondary mb-3">FOLLOW</h3>
+                                <div class="flex flex-col gap-3">
+                                    <a class="font-headline text-base md:text-lg font-bold uppercase tracking-tight flex items-center group w-max" href="https://instagram.com/nd.now" target="_blank">
+                                        <span class="group-hover:translate-x-2 group-hover:text-international-orange transition-all duration-300">Instagram | Design</span>
+                                        <span class="material-symbols-outlined text-base md:text-lg ml-2 opacity-0 group-hover:opacity-100 group-hover:text-international-orange transition-all">arrow_outward</span>
+                                    </a>
+                                    <a class="font-headline text-base md:text-lg font-bold uppercase tracking-tight flex items-center group w-max" href="https://instagram.com/hahaiamandy" target="_blank">
+                                        <span class="group-hover:translate-x-2 group-hover:text-international-orange transition-all duration-300">Instagram | Personal</span>
+                                        <span class="material-symbols-outlined text-base md:text-lg ml-2 opacity-0 group-hover:opacity-100 group-hover:text-international-orange transition-all">arrow_outward</span>
+                                    </a>
+                                </div>
+                            </section>
+
+                            <!-- Resume -->
+                            <section>
+                                <h3 class="font-label text-[10px] tracking-[0.3em] uppercase text-secondary mb-3">DOCUMENT</h3>
+                                <a class="font-headline text-base md:text-lg font-bold uppercase tracking-tight flex items-center group w-max" href="https://drive.google.com/file/d/1k_jQx439kt1MzPKpgDmBA9BUfuwPHp9K/view?usp=sharing" target="_blank">
+                                    <span class="group-hover:translate-x-2 group-hover:text-international-orange transition-all duration-300 border-b border-transparent group-hover:border-international-orange pb-0.5">Resume.pdf</span>
+                                    <span class="material-symbols-outlined text-base md:text-lg ml-2 opacity-0 group-hover:opacity-100 group-hover:text-international-orange transition-all">arrow_outward</span>
+                                </a>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Main Footer -->
+        <footer class="w-full py-12 px-8 flex justify-center items-center max-w-full">
+            <div class="font-label text-[10px] tracking-[0.2em] uppercase text-international-orange">© 2026 ND DESIGN. ALL RIGHTS RESERVED.</div>
+        </footer>
+    </div>
+    <!-- ════════ END MAIN HOME VIEW ════════ -->
+
+
+    <!-- ════════ PROJECT DETAIL VIEW SWITCHER (CASE STUDY) ════════ -->
+    <div id="detail-view">
+        <main class="pt-32 pb-40">
+            <section class="px-6 md:px-12 mb-20 md:mb-32 max-w-screen-2xl mx-auto">
+                
+                <!-- Back Button -->
+                <button class="mb-12 font-label text-[10px] tracking-[0.2em] uppercase text-secondary hover:text-international-orange transition-colors flex items-center gap-2" onclick="closeProject()">
+                    <span class="material-symbols-outlined text-[16px]">arrow_back</span> Back to Archive
+                </button>
+
+                <!-- Header -->
+                <div class="flex flex-col md:flex-row gap-8 items-end mb-12">
+                    <div class="w-full md:w-3/4">
+                        <span id="pv-category" class="font-label text-xs tracking-[0.2em] text-international-orange mb-6 block uppercase"></span>
+                        <h1 id="pv-title" class="font-headline text-5xl md:text-[6rem] lg:text-[7rem] leading-[0.9] font-bold tracking-tighter uppercase text-primary"></h1>
+                    </div>
+                    <div class="hidden md:block w-1/4 pb-4">
+                        <p id="pv-subtitle" class="font-body text-xs text-secondary leading-relaxed uppercase max-w-[200px]"></p>
+                    </div>
+                </div>
+                
+                <!-- Main Hero Visual (Image or Video injected here) -->
+                <div id="pv-hero-media" class="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-black group mb-24 border border-outline-variant/30"></div>
+
+                <!-- Specs Data -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-t border-outline-variant/30 mb-24">
+                    <div class="flex flex-col gap-2">
+                        <span class="font-label text-[10px] tracking-widest text-secondary uppercase">Year</span>
+                        <span id="pv-year" class="font-headline text-lg uppercase text-primary font-bold"></span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <span class="font-label text-[10px] tracking-widest text-secondary uppercase">Client</span>
+                        <span id="pv-client" class="font-headline text-lg uppercase text-primary font-bold"></span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <span class="font-label text-[10px] tracking-widest text-secondary uppercase">Services</span>
+                        <span id="pv-services" class="font-headline text-lg uppercase text-primary font-bold"></span>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <span class="font-label text-[10px] tracking-widest text-secondary uppercase">Role</span>
+                        <span id="pv-role" class="font-headline text-lg uppercase text-primary font-bold"></span>
+                    </div>
+                </div>
+
+                <!-- Content: Challenge & Solution -->
+                <!-- RESTRUCTURED: Ensuring perfect top-alignment between Section Titles and their content -->
+                <div class="space-y-16 md:space-y-24 mb-24 border-b border-outline-variant/30 pb-24">
+                    
+                    <!-- Row 1: Challenge -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12">
+                        <div class="md:col-span-4 lg:col-span-5">
+                            <h2 class="font-label text-sm tracking-[0.3em] uppercase text-international-orange mb-4">01 / The Challenge</h2>
+                            <h3 class="font-headline text-3xl md:text-4xl font-bold uppercase tracking-tight leading-none text-primary">STRATEGIC<br class="hidden lg:block"/> CONTEXT.</h3>
+                        </div>
+                        <div class="md:col-span-8 lg:col-span-7">
+                            <p id="pv-challenge" class="font-body text-lg text-secondary leading-relaxed m-0 md:-mt-1"></p>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: Solution -->
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12">
+                        <div class="md:col-span-4 lg:col-span-5">
+                            <h2 class="font-label text-sm tracking-[0.3em] uppercase text-international-orange mb-4">02 / The Solution</h2>
+                            <h3 class="font-headline text-3xl md:text-4xl font-bold uppercase tracking-tight leading-none text-primary">EXECUTING<br class="hidden lg:block"/> THE VISION.</h3>
+                        </div>
+                        <div class="md:col-span-8 lg:col-span-7">
+                            <p id="pv-solution" class="font-body text-lg text-secondary leading-relaxed whitespace-pre-wrap m-0 md:-mt-1"></p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Extended Media (Vimeo / Gallery) -->
+                <div id="pv-media-container" class="space-y-12"></div>
+
+                <!-- Bottom Back Button -->
+                <div class="flex justify-center mt-32">
+                    <button class="bg-international-orange text-white px-12 py-5 font-label text-xs tracking-[0.2em] uppercase hover:bg-black transition-all duration-300" onclick="closeProject()">
+                        Return to Archives
+                    </button>
+                </div>
+
+            </section>
+        </main>
+
+        <!-- Re-use footer -->
+        <footer class="w-full py-12 px-8 flex justify-center items-center max-w-full">
+            <div class="font-label text-[10px] tracking-[0.2em] uppercase text-international-orange">© 2026 ND DESIGN. ALL RIGHTS RESERVED.</div>
+        </footer>
+    </div>
+    <!-- ════════ END PROJECT DETAIL VIEW SWITCHER ════════ -->
+
+    <script>
+        // Secure, iframe-compatible scroll function for Nav menu
+        function scrollToSection(id) {
+            const detailView = document.getElementById('detail-view');
+            if (detailView.classList.contains('is-open')) {
+                detailView.classList.remove('is-open');
+                document.getElementById('home-view').style.display = 'block';
+            }
+
+            setTimeout(() => {
+                const el = document.getElementById(id);
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 50);
+        }
+
+        // Database for projects
+        const projectsData = {
+            'scmp-lighthouse': {
+                category: '01 / Motion Case Study',
+                title: 'SCMP<br>LIGHTHOUSE',
+                subtitle: 'Navigating the visual synthesis of Eastern and Western perspectives.',
+                heroImg: 'https://i.imgur.com/m1XqB0h.jpeg',
+                year: '2023',
+                client: 'SCMP',
+                services: 'Motion & Branding',
+                role: 'Animator',
+                challenge: 'SCMP Lighthouse needed a visual language that felt global yet rooted — balancing the publication\'s traditional authority with modern digital fluidity across international audiences.',
+                solution: 'I built a motion narrative around a "Cultural Compass" concept, blending Hong Kong rhythms with structured Western functionalism. The resulting system shipped across broadcast, digital, and social formats.',
+                vimeoId: '1172765896',
+                gallery: []
+            },
+            'tai-kwun': {
+                category: '02 / Identity System',
+                title: 'TAI KWUN<br>BRANDING',
+                subtitle: 'Breathing life into the heritage of a cultural landmark.',
+                heroImg: 'https://i.imgur.com/h5tHIOJ.jpeg',
+                year: '2022',
+                client: 'Tai Kwun',
+                services: 'Brand Animation',
+                role: 'Animator',
+                challenge: 'Transforming a historic police station into a centre for arts required honouring its architectural heritage while signalling a vibrant, contemporary destination — without erasing what made it significant.',
+                solution: 'I mirrored the site\'s grid-like architectural structure through geometric motion paths, creating a visual vocabulary that felt both rooted and alive. The system was deployed across on-site digital signage and campaign materials.',
+                vimeoId: '1172770312',
+                gallery: ['https://i.imgur.com/43Gx55n.mp4','https://i.imgur.com/iq0gp7w.mp4','https://i.imgur.com/CpTVeyd.mp4','https://i.imgur.com/sDjNWfY.mp4']
+            },
+            'cosmo-beauty': {
+                category: '03 / Digital Architecture',
+                title: 'BEST OF<br>THE BEST',
+                subtitle: 'Charting a new aesthetic for excellence in the beauty industry.',
+                heroImg: 'https://i.imgur.com/qlkLyIm.mp4', 
+                year: '2023',
+                client: 'Cosmopolitan',
+                services: 'UI/UX & Identity',
+                role: 'Art Director',
+                challenge: 'The awards needed a cohesive visual identity that resonated with a sophisticated readership while making the digital voting experience intuitive enough to drive tens of thousands of submissions.',
+                solution: 'I developed an editorial visual system combining precision typography with glamorous, tactile textures. The voting UI was designed mobile-first, cutting the drop-off rate significantly compared to the previous year\'s campaign.',
+                vimeoId: '',
+                gallery: ['https://i.imgur.com/9ngSMS9.jpeg']
+            },
+            'hkwalls': {
+                category: '04 / Motion Art',
+                title: 'HKWALLS<br>SAMSARA',
+                subtitle: 'Transforming the city\'s skyline into a 4,000 sqm digital canvas.',
+                heroImg: 'https://i.imgur.com/XSGR1Dw.mp4',
+                year: '2024',
+                client: 'Sino Group',
+                services: 'LED Façade',
+                role: 'Animation Artist',
+                challenge: 'SAMSARA had to work at 4,000 sqm — the LED façades of Tsim Sha Tsui Centre and Empire Centre along Victoria Harbour — while retaining artistic coherence for both pedestrians close up and commuters viewing from Kowloon.',
+                solution: 'I designed for three viewing distances simultaneously: bold graphic shapes for the far view, intricate colour cycles for mid-range, and fine detail for pedestrians. The animation loop runs at exactly 90 seconds, timed to the average crossing at the nearby traffic light.',
+                vimeoId: '',
+                gallery: ['https://i.imgur.com/bpnl9jo.jpeg','https://i.imgur.com/wGUds0C.jpeg','https://i.imgur.com/fZ935lO.jpeg']
+            }
+        };
+
+        const isVideo = url => url.toLowerCase().endsWith('.mp4');
+
+        // View-Switcher logic
+        function openProject(id) {
+            const data = projectsData[id];
+            if(!data) return;
+
+            // 1. Hide home, show detail wrapper
+            document.getElementById('home-view').style.display = 'none';
+            const detailView = document.getElementById('detail-view');
+            detailView.classList.add('is-open');
+
+            // 2. Populate texts
+            document.getElementById('pv-category').textContent = data.category;
+            document.getElementById('pv-title').innerHTML = data.title;
+            document.getElementById('pv-subtitle').textContent = data.subtitle;
+            document.getElementById('pv-year').textContent = data.year;
+            document.getElementById('pv-client').textContent = data.client;
+            document.getElementById('pv-services').textContent = data.services;
+            document.getElementById('pv-role').textContent = data.role;
+            document.getElementById('pv-challenge').textContent = data.challenge;
+            document.getElementById('pv-solution').textContent = data.solution;
+
+            // 3. Populate Hero Media
+            const heroContainer = document.getElementById('pv-hero-media');
+            if(isVideo(data.heroImg)) {
+                heroContainer.innerHTML = `
+                    <video autoplay loop muted playsinline class="w-full h-full object-cover block opacity-90"><source src="${data.heroImg}" type="video/mp4"></video>`;
+            } else {
+                heroContainer.innerHTML = `<img src="${data.heroImg}" alt="Project Hero" class="w-full h-full object-cover block opacity-90 grayscale contrast-125 hover:grayscale-0 transition-all duration-700">`;
+            }
+
+            // 4. Populate Extended Media (Vimeo & Gallery below content)
+            const mediaContainer = document.getElementById('pv-media-container');
+            mediaContainer.innerHTML = '';
+
+            if (data.vimeoId) {
+                mediaContainer.innerHTML += `
+                    <div class="w-full aspect-video bg-black relative mb-12 border border-outline-variant/30">
+                        <iframe src="https://player.vimeo.com/video/${data.vimeoId}?loop=1&muted=1"
+                                class="absolute top-0 left-0 w-full h-full border-0"
+                                allow="autoplay; fullscreen" allowfullscreen></iframe>
+                    </div>`;
+            }
+
+            if (data.gallery && data.gallery.length > 0) {
+                let html = `<div class="grid grid-cols-1 md:grid-cols-12 gap-8 mt-16">`;
+                
+                // Implement an asymmetric layout for gallery images too
+                data.gallery.forEach((url, index) => {
+                    const colSpan = (index % 2 === 0) ? 'md:col-span-8' : 'md:col-span-4 md:mt-24';
+                    
+                    if (isVideo(url)) {
+                        html += `
+                        <div class="${colSpan} bg-black aspect-square md:aspect-auto overflow-hidden border border-outline-variant/30 group">
+                            <video autoplay loop muted playsinline class="w-full h-full object-cover block opacity-90 group-hover:scale-105 transition-transform duration-700"><source src="${url}" type="video/mp4"></video>
+                        </div>`;
+                    } else {
+                        html += `
+                        <div class="${colSpan} bg-surface-container-high overflow-hidden border border-outline-variant/30 group">
+                            <img src="${url}" alt="Gallery Image" loading="lazy" class="w-full h-full block object-cover opacity-90 grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
+                        </div>`;
+                    }
+                });
+                html += `</div>`;
+                mediaContainer.innerHTML += html;
+            }
+
+            // 5. Scroll to top safely for Google Sites iframe
+            window.scrollTo(0, 0);
+            setTimeout(() => {
+                detailView.scrollIntoView({ block: 'start' });
+            }, 50);
+        }
+
+        function closeProject() {
+            // 1. Hide detail wrapper
+            const detailView = document.getElementById('detail-view');
+            detailView.classList.remove('is-open');
+            
+            // 2. Show home view
+            document.getElementById('home-view').style.display = 'block';
+            
+            // 3. Clear heavy media
+            document.getElementById('pv-hero-media').innerHTML = '';
+            document.getElementById('pv-media-container').innerHTML = '';
+
+            // 4. Snap back down to the work grid
+            setTimeout(() => {
+                const workSec = document.getElementById('work');
+                if (workSec) {
+                    workSec.scrollIntoView({ block: 'start' });
+                }
+            }, 50);
+        }
+
+        // --- BULLETPROOF BACK TO TOP BUTTON FOR GOOGLE SITES IFRAME ---
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        setInterval(() => {
+            if (!backToTopBtn) return;
+            const bodyRect = document.body.getBoundingClientRect();
+            const scrolledDistance = Math.abs(bodyRect.top);
+
+            if (scrolledDistance > 400) {
+                backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                backToTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                backToTopBtn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+            }
+        }, 150);
+
+        if (backToTopBtn) {
+            backToTopBtn.addEventListener('click', () => {
+                document.body.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // Backup for normal browsers
+            });
+        }
+    </script>
+</body>
+</html>
