@@ -99,12 +99,10 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Project Card Title Alignment Fix */
         .card-title {
             min-height: 2.2em;
         }
 
-        /* Detail View Typographic Tweaks */
         .uscore {
             font-weight: 300;
             opacity: 0.4;
@@ -124,14 +122,12 @@
                 <a class="font-label uppercase tracking-widest text-xs text-secondary hover:text-international-orange transition-colors cursor-pointer" onclick="scrollToSection('about')">Profile</a>
                 <a class="font-label uppercase tracking-widest text-xs text-secondary hover:text-international-orange transition-colors cursor-pointer" onclick="scrollToSection('contact')">Contact</a>
             </div>
-            <!-- Mobile Menu -->
             <button class="md:hidden text-black" onclick="scrollToSection('work')">
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
     </nav>
 
-    <!-- Back to top button -->
     <button aria-label="Back to top" id="back-to-top" class="fixed bottom-8 right-8 z-[9000] group w-12 h-12 flex items-center justify-center bg-white border hover:border-international-orange transition-all duration-300 shadow-sm border-outline-variant opacity-0 pointer-events-none translate-y-4">
         <span class="material-symbols-outlined group-hover:text-international-orange transition-colors duration-300 text-primary font-light">north</span>
     </button>
@@ -158,7 +154,7 @@
                 </div>
             </section>
 
-            <!-- ── WORK Section (Standard Grid) ── -->
+            <!-- ── WORK ── -->
             <section id="work" class="bg-surface-container-low py-24 md:py-40" style="scroll-margin-top: 52px;">
                 <div class="px-8 max-w-screen-2xl mx-auto">
                     <div class="flex justify-between items-baseline mb-20 border-b border-outline-variant/30 pb-8">
@@ -253,21 +249,14 @@
                                 Bridging the visual language of two very different worlds.
                             </h2>
                             <div class="space-y-6 text-secondary leading-[1.8] font-body text-base md:text-lg">
-                                <p>
-                                    I'm a Hong Kong-born creative now based in Vancouver, BC. With a background spanning branding, motion graphics, and digital design, I've worked with publishers, cultural institutions and lifestyle brands across Asia and beyond.
-                                </p>
-                                <p>
-                                    My process is rooted in curiosity — I explore first, then distil. I believe in translating complex ideas into timeless, functional digital artifacts that respect the user's focus.
-                                </p>
-                                <p>
-                                    When I'm not designing, I'm probably hunting for good coffee, exploring new neighbourhoods, or shooting on film.
-                                </p>
+                                <p>I'm a Hong Kong-born creative now based in Vancouver, BC. With a background spanning branding, motion graphics, and digital design, I've worked with publishers, cultural institutions and lifestyle brands across Asia and beyond.</p>
+                                <p>My process is rooted in curiosity — I explore first, then distil. I believe in translating complex ideas into timeless, functional digital artifacts that respect the user's focus.</p>
+                                <p>When I'm not designing, I'm probably hunting for good coffee, exploring new neighbourhoods, or shooting on film.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Expertise -->
                 <div class="border-t border-outline-variant/30 pt-16">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
                         <div class="md:col-span-4">
@@ -303,15 +292,12 @@
                             <label class="font-label text-[10px] tracking-[0.3em] uppercase text-international-orange sticky top-32">03 / CONNECTIVITY</label>
                         </div>
                         <div class="md:col-start-8 md:col-span-5 flex flex-col gap-8 md:gap-10">
-                            <!-- Direct Inquiries -->
                             <section>
                                 <h3 class="font-label text-[10px] tracking-[0.3em] uppercase text-secondary mb-3">MAIL</h3>
                                 <div>
                                     <a href="mailto:hahaiamandy@gmail.com" class="font-headline text-base md:text-lg font-bold uppercase tracking-tight hover:text-international-orange transition-colors cursor-pointer inline-block border-b border-transparent hover:border-international-orange pb-0.5">hahaiamandy@gmail.com</a>
                                 </div>
                             </section>
-                            
-                            <!-- Socials -->
                             <section>
                                 <h3 class="font-label text-[10px] tracking-[0.3em] uppercase text-secondary mb-3">FOLLOW</h3>
                                 <div class="flex flex-col gap-3">
@@ -325,8 +311,6 @@
                                     </a>
                                 </div>
                             </section>
-
-                            <!-- Resume -->
                             <section>
                                 <h3 class="font-label text-[10px] tracking-[0.3em] uppercase text-secondary mb-3">DOCUMENT</h3>
                                 <a class="font-headline text-base md:text-lg font-bold uppercase tracking-tight flex items-center group w-max" href="https://drive.google.com/file/d/1HkOD31J1VJbqHSS9I-gLMqwxnIU2ryy1/view?usp=sharing" target="_blank">
@@ -345,10 +329,9 @@
             <div class="font-label text-[10px] tracking-[0.2em] uppercase text-international-orange">© 2026 ND DESIGN. ALL RIGHTS RESERVED.</div>
         </footer>
     </div>
-    <!-- ════════ END MAIN HOME VIEW ════════ -->
 
 
-    <!-- ════════ PROJECT DETAIL VIEW SWITCHER (CASE STUDY) ════════ -->
+    <!-- ════════ PROJECT DETAIL VIEW ════════ -->
     <div id="detail-view">
         <main class="pt-32 pb-40">
             <section class="px-6 md:px-12 mb-20 md:mb-32 max-w-screen-2xl mx-auto">
@@ -389,7 +372,6 @@
                 </div>
 
                 <div class="space-y-16 md:space-y-24 mb-24 border-b border-outline-variant/30 pb-24">
-                    
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-12">
                         <div class="md:col-span-4 lg:col-span-5">
                             <h2 class="font-label text-sm tracking-[0.3em] uppercase text-international-orange mb-4">01 / The Challenge</h2>
@@ -409,7 +391,6 @@
                             <p id="pv-solution" class="font-body text-lg text-secondary leading-relaxed whitespace-pre-wrap m-0 md:-mt-1"></p>
                         </div>
                     </div>
-
                 </div>
 
                 <div id="pv-media-container" class="space-y-12"></div>
@@ -427,7 +408,6 @@
             <div class="font-label text-[10px] tracking-[0.2em] uppercase text-international-orange">© 2026 ND DESIGN. ALL RIGHTS RESERVED.</div>
         </footer>
     </div>
-    <!-- ════════ END PROJECT DETAIL VIEW SWITCHER ════════ -->
 
     <script>
         function scrollToSection(id) {
@@ -436,16 +416,12 @@
                 detailView.classList.remove('is-open');
                 document.getElementById('home-view').style.display = 'block';
             }
-
             setTimeout(() => {
                 const el = document.getElementById(id);
-                if (el) {
-                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }, 50);
         }
 
-        // ── UPDATED PROJECT DATA ──
         const projectsData = {
             'scmp-lighthouse': {
                 category: '01 / Motion Case Study',
@@ -479,7 +455,7 @@
                 category: '03 / Digital Architecture',
                 title: 'BEST OF<br>THE BEST',
                 subtitle: 'Charting a new aesthetic for excellence in the beauty industry.',
-                heroImg: 'https://i.imgur.com/qlkLyIm.mp4', 
+                heroImg: 'https://i.imgur.com/qlkLyIm.mp4',
                 year: '2023',
                 client: 'Cosmopolitan',
                 services: 'UI/UX & Identity',
@@ -499,7 +475,7 @@
                 services: 'LED Façade',
                 role: 'Animation Artist',
                 challenge: 'SAMSARA had to work at 4,000 sqm — across the LED façades of Tsim Sha Tsui Centre and Empire Centre along Victoria Harbour — while retaining artistic coherence for both pedestrians close up and commuters viewing from across Kowloon.',
-                solution: 'I設計專門針對三個觀看距離：遠處的大膽圖形、中程的複雜色彩循環、以及近處路人的細節。動畫循環時間剛好為 90 秒，配合鄰近紅綠燈的平均通行時間。在兩週的藝術節期間，該裝置吸引了約 50 萬名路人觀看，成為 HKWALLS 2024 中分享次數最多的視覺作品之一。',
+                solution: 'I designed for three viewing distances simultaneously: bold graphic shapes for the far view, intricate colour cycles for mid-range, and fine detail for pedestrians. The animation loop runs at exactly 90 seconds, timed to the average crossing at the nearby traffic light. Over the two-week festival, the installation was viewed by an estimated 500,000 passers-by — becoming one of the most shared visuals of HKWALLS 2024.',
                 vimeoId: '',
                 gallery: ['https://i.imgur.com/bpnl9jo.jpeg','https://i.imgur.com/wGUds0C.jpeg','https://i.imgur.com/fZ935lO.jpeg']
             }
@@ -509,7 +485,7 @@
 
         function openProject(id) {
             const data = projectsData[id];
-            if(!data) return;
+            if (!data) return;
 
             document.getElementById('home-view').style.display = 'none';
             const detailView = document.getElementById('detail-view');
@@ -526,9 +502,8 @@
             document.getElementById('pv-solution').textContent = data.solution;
 
             const heroContainer = document.getElementById('pv-hero-media');
-            if(isVideo(data.heroImg)) {
-                heroContainer.innerHTML = `
-                    <video autoplay loop muted playsinline class="w-full h-full object-cover block opacity-90"><source src="${data.heroImg}" type="video/mp4"></video>`;
+            if (isVideo(data.heroImg)) {
+                heroContainer.innerHTML = `<video autoplay loop muted playsinline class="w-full h-full object-cover block opacity-90"><source src="${data.heroImg}" type="video/mp4"></video>`;
             } else {
                 heroContainer.innerHTML = `<img src="${data.heroImg}" alt="Project Hero" class="w-full h-full object-cover block opacity-90 grayscale contrast-125 hover:grayscale-0 transition-all duration-700">`;
             }
@@ -547,18 +522,14 @@
 
             if (data.gallery && data.gallery.length > 0) {
                 let html = `<div class="grid grid-cols-1 md:grid-cols-12 gap-8 mt-16">`;
-                
                 data.gallery.forEach((url, index) => {
                     const colSpan = (index % 2 === 0) ? 'md:col-span-8' : 'md:col-span-4 md:mt-24';
-                    
                     if (isVideo(url)) {
-                        html += `
-                        <div class="${colSpan} bg-black aspect-square md:aspect-auto overflow-hidden border border-outline-variant/30 group">
+                        html += `<div class="${colSpan} bg-black aspect-square md:aspect-auto overflow-hidden border border-outline-variant/30 group">
                             <video autoplay loop muted playsinline class="w-full h-full object-cover block opacity-90 group-hover:scale-105 transition-transform duration-700"><source src="${url}" type="video/mp4"></video>
                         </div>`;
                     } else {
-                        html += `
-                        <div class="${colSpan} bg-surface-container-high overflow-hidden border border-outline-variant/30 group">
+                        html += `<div class="${colSpan} bg-surface-container-high overflow-hidden border border-outline-variant/30 group">
                             <img src="${url}" alt="Gallery Image" loading="lazy" class="w-full h-full block object-cover opacity-90 grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700">
                         </div>`;
                     }
@@ -568,35 +539,25 @@
             }
 
             window.scrollTo(0, 0);
-            setTimeout(() => {
-                detailView.scrollIntoView({ block: 'start' });
-            }, 50);
+            setTimeout(() => { detailView.scrollIntoView({ block: 'start' }); }, 50);
         }
 
         function closeProject() {
             const detailView = document.getElementById('detail-view');
             detailView.classList.remove('is-open');
-            
             document.getElementById('home-view').style.display = 'block';
-            
             document.getElementById('pv-hero-media').innerHTML = '';
             document.getElementById('pv-media-container').innerHTML = '';
-
             setTimeout(() => {
                 const workSec = document.getElementById('work');
-                if (workSec) {
-                    workSec.scrollIntoView({ block: 'start' });
-                }
+                if (workSec) workSec.scrollIntoView({ block: 'start' });
             }, 50);
         }
 
         const backToTopBtn = document.getElementById('back-to-top');
-        
         setInterval(() => {
             if (!backToTopBtn) return;
-            const bodyRect = document.body.getBoundingClientRect();
-            const scrolledDistance = Math.abs(bodyRect.top);
-
+            const scrolledDistance = Math.abs(document.body.getBoundingClientRect().top);
             if (scrolledDistance > 400) {
                 backToTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
                 backToTopBtn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
@@ -608,7 +569,6 @@
 
         if (backToTopBtn) {
             backToTopBtn.addEventListener('click', () => {
-                document.body.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
