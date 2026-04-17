@@ -8,7 +8,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <!-- AOS Animation Library CSS -->
+    <!-- AOS 動畫庫 CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -90,7 +90,7 @@
             display: none;
         }
         
-        /* View Switcher */
+        /* 視圖切換器 */
         #detail-view { display: none; }
         #detail-view.is-open {
             display: block;
@@ -115,7 +115,7 @@
 </head>
 <body class="text-on-background selection:bg-international-orange selection:text-white font-body">
 
-    <!-- ══ NAV ══ -->
+    <!-- ══ 導航欄 ══ -->
     <nav class="fixed top-0 left-0 right-0 w-full z-[9999] border-b border-outline-variant/20 transition-all duration-300" style="background-color: rgba(249, 249, 249, 0.95); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);">
         <div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto">
             <a class="text-xl font-bold tracking-tighter text-black font-headline cursor-pointer hover:text-international-orange transition-colors" onclick="scrollToSection('top')">N.D</a>
@@ -134,7 +134,7 @@
         <span class="material-symbols-outlined group-hover:text-international-orange transition-colors duration-300 text-primary font-light">north</span>
     </button>
 
-    <!-- ════════ MAIN HOME VIEW ════════ -->
+    <!-- ════════ 主首頁視圖 ════════ -->
     <div id="home-view">
         <main class="pt-32">
             
@@ -161,12 +161,12 @@
                 <div class="px-8 max-w-screen-2xl mx-auto">
                     <div class="flex justify-between items-baseline mb-20 border-b border-outline-variant/30 pb-8" data-aos="fade-right">
                         <h2 class="font-headline text-3xl md:text-5xl font-medium uppercase tracking-tight">Expeditions</h2>
-                        <span class="font-label text-[10px] tracking-[0.2em] text-secondary uppercase">04 Active Projects</span>
+                        <span class="font-label text-[10px] tracking-[0.2em] text-secondary uppercase">05 Active Projects</span>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
                         
-                        <!-- Project 01 -->
+                        <!-- 專案 01 -->
                         <div class="group cursor-pointer flex flex-col" onclick="openProject('scmp-lighthouse')" data-aos="fade-up">
                             <div class="mb-6 flex flex-col md:flex-row md:justify-between md:items-end gap-3">
                                 <span class="font-label text-xs md:text-sm uppercase tracking-widest group-hover:text-international-orange transition-colors duration-500">01 / SCMP LIGHTHOUSE</span>
@@ -183,7 +183,7 @@
                             </div>
                         </div>
 
-                        <!-- Project 02 -->
+                        <!-- 專案 02 -->
                         <div class="group cursor-pointer flex flex-col" onclick="openProject('tai-kwun')" data-aos="fade-up" data-aos-delay="100">
                             <div class="mb-6 flex flex-col md:flex-row md:justify-between md:items-end gap-3">
                                 <span class="font-label text-xs md:text-sm uppercase tracking-widest group-hover:text-international-orange transition-colors duration-500">02 / TAI KWUN</span>
@@ -200,7 +200,7 @@
                             </div>
                         </div>
 
-                        <!-- Project 03 -->
+                        <!-- 專案 03 -->
                         <div class="group cursor-pointer flex flex-col" onclick="openProject('cosmo-beauty')" data-aos="fade-up">
                             <div class="mb-6 flex flex-col md:flex-row md:justify-between md:items-end gap-3">
                                 <span class="font-label text-xs md:text-sm uppercase tracking-widest group-hover:text-international-orange transition-colors duration-500">03 / BEST OF THE BEST</span>
@@ -217,7 +217,7 @@
                             </div>
                         </div>
 
-                        <!-- Project 04 -->
+                        <!-- 專案 04 -->
                         <div class="group cursor-pointer flex flex-col" onclick="openProject('hkwalls')" data-aos="fade-up" data-aos-delay="100">
                             <div class="mb-6 flex flex-col md:flex-row md:justify-between md:items-end gap-3">
                                 <span class="font-label text-xs md:text-sm uppercase tracking-widest group-hover:text-international-orange transition-colors duration-500">04 / HKWALLS SAMSARA</span>
@@ -234,15 +234,34 @@
                             </div>
                         </div>
 
+                        <!-- 專案 05: MOM AND POP -->
+                        <div class="group cursor-pointer flex flex-col" onclick="openProject('mom-and-pop')" data-aos="fade-up">
+                            <div class="mb-6 flex flex-col md:flex-row md:justify-between md:items-end gap-3">
+                                <span class="font-label text-xs md:text-sm uppercase tracking-widest group-hover:text-international-orange transition-colors duration-500">05 / MOM AND POP</span>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-label text-[10px] text-secondary uppercase group-hover:text-international-orange transition-colors duration-500">Motion & Branding</span>
+                                </div>
+                            </div>
+                            <div class="relative aspect-[4/3] bg-surface-container overflow-hidden border border-outline-variant/30 w-full">
+                                <video autoplay loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700">
+                                    <source src="https://github.com/madebynd/portfolio-assets/raw/refs/heads/main/TC_ACxTB_1080x1440_3_1.mp4" type="video/mp4">
+                                </video>
+                            </div>
+                            <div class="pt-6 flex flex-col flex-1">
+                                <h3 class="font-headline text-2xl font-bold uppercase tracking-tight card-title mb-2 group-hover:text-international-orange transition-colors duration-300">MOM AND POP Animation Logbook</h3>
+                                <p class="text-sm text-secondary leading-relaxed">A diverse collection of motion narratives for a creative boutique.</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </section>
 
-            <!-- ── PROFILE / ABOUT ── -->
+            <!-- ── 個人資料 / 關於 ── -->
             <section id="about" class="px-8 max-w-screen-2xl mx-auto py-32 md:py-48" style="scroll-margin-top: 52px;">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 mb-40">
                     <div class="md:col-span-5 aspect-[3/4] bg-surface-container-highest overflow-hidden border border-outline-variant/30" data-aos="reveal-left" data-aos-duration="1200">
-                        <!-- Profile Image Placeholder -->
+                        <!-- 個人頭像佔位 -->
                     </div>
                     <div class="md:col-span-7 flex flex-col justify-center" data-aos="fade-left" data-aos-duration="1000">
                         <div class="max-w-xl">
@@ -294,7 +313,7 @@
                             <label class="font-label text-[10px] tracking-[0.3em] uppercase text-international-orange sticky top-32">03 / CONNECTIVITY</label>
                         </div>
                         <div class="md:col-start-8 md:col-span-5 flex flex-col gap-8 md:gap-10" data-aos="fade-up">
-                            <!-- Direct Inquiries -->
+                            <!-- 直接詢問 -->
                             <section>
                                 <h3 class="font-label text-[10px] tracking-[0.3em] uppercase text-secondary mb-3">MAIL</h3>
                                 <div>
@@ -334,7 +353,7 @@
     </div>
 
 
-    <!-- ════════ PROJECT DETAIL VIEW ════════ -->
+    <!-- ════════ 專案詳情視圖 ════════ -->
     <div id="detail-view">
         <main class="pt-32 pb-40">
             <section class="px-6 md:px-12 mb-20 md:mb-32 max-w-screen-2xl mx-auto">
@@ -396,6 +415,7 @@
                     </div>
                 </div>
 
+                <!-- 畫廊媒體容器 -->
                 <div id="pv-media-container" class="space-y-12"></div>
 
                 <div class="flex justify-center mt-32">
@@ -412,28 +432,32 @@
         </footer>
     </div>
 
-    <!-- AOS Animation Library JS -->
+    <!-- AOS 動畫庫 JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize AOS
+        // 初始化 AOS
         window.onload = function() {
-            AOS.init({
-                duration: 800,
-                once: true,
-                offset: 100,
-                easing: 'ease-out-quad'
-            });
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 100,
+                    easing: 'ease-out-quad'
+                });
+            }
         };
 
+        // 導航滾動處理器
         function scrollToSection(id) {
             const detailView = document.getElementById('detail-view');
-            if (detailView.classList.contains('is-open')) {
-                detailView.classList.remove('is-open');
-                document.getElementById('home-view').style.display = 'block';
+            if (detailView && detailView.classList.contains('is-open')) {
+                closeProject();
             }
             setTimeout(() => {
                 const el = document.getElementById(id);
-                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (el) {
+                    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
             }, 50);
         }
 
@@ -470,7 +494,7 @@
                 category: '03 / Digital Architecture',
                 title: 'BEST OF<br>THE BEST',
                 subtitle: 'Charting a new aesthetic for excellence in the beauty industry.',
-                heroImg: 'https://i.imgur.com/qlkLyIm.mp4',
+                heroImg: 'https://i.imgur.com/qlkLyIm.mp4', 
                 year: '2023',
                 client: 'Cosmopolitan',
                 services: 'UI/UX & Identity',
@@ -493,19 +517,44 @@
                 solution: 'I designed for three viewing distances simultaneously: bold graphic shapes for the far view, intricate colour cycles for mid-range, and fine detail for pedestrians. The animation loop runs at exactly 90 seconds, timed to the average crossing at the nearby traffic light. Over the two-week festival, the installation drew significant foot traffic along the Victoria Harbour waterfront — becoming one of the most widely shared visuals of HKWALLS 2024.',
                 vimeoId: '',
                 gallery: ['https://i.imgur.com/bpnl9jo.jpeg','https://i.imgur.com/wGUds0C.jpeg','https://i.imgur.com/fZ935lO.jpeg']
+            },
+            'mom-and-pop': {
+                category: '05 / Motion Series',
+                title: 'MOM AND POP<br>Animation Logbook',
+                subtitle: 'A diverse collection of motion narratives for a creative boutique.',
+                heroImg: 'https://github.com/madebynd/portfolio-assets/raw/refs/heads/main/TC_ACxTB_1080x1440_3_1.mp4',
+                year: '2024',
+                client: 'MOM AND POP',
+                services: 'Motion, Branding, Social Media',
+                role: 'Freelance Animator',
+                challenge: 'Working with a creative agency like MOM AND POP requires extreme versatility. The challenge was to adapt to a wide range of brand voices and artistic directions—from minimalist logo reveals to complex, high-energy promotional content—while maintaining a consistently high standard of motion precision.',
+                solution: 'I approached this ongoing collaboration as a series of "Creative Expeditions." Instead of sticking to one style, I explored different animation techniques to match each unique client brief. My solution focused on being a "Visual Navigator" for the agency, providing fluid, rhythm-driven motion that brought their static designs to life. This diverse logbook proves the ability to chart a path through any creative territory, ensuring every brand story is told with the right pace and energy.',
+                vimeoId: '',
+                gallery: [
+                    'https://github.com/madebynd/portfolio-assets/raw/refs/heads/main/TC_ACxTB_1080x1440_3_1.mp4',
+                    'https://github.com/madebynd/portfolio-assets/raw/refs/heads/main/Letitbe%20logo%20animation_v3.mp4',
+                    'https://github.com/madebynd/portfolio-assets/raw/refs/heads/main/Motifx_1080x1920_v5.mp4',
+                    'https://github.com/madebynd/portfolio-assets/raw/refs/heads/main/logo_v3.mp4',
+                    'https://github.com/madebynd/portfolio-assets/raw/refs/heads/main/Showcase.mp4',
+                    'https://github.com/madebynd/portfolio-assets/raw/refs/heads/main/if_you_could_see_me_now_v2.mp4',
+                    'https://github.com/madebynd/portfolio-assets/raw/refs/heads/main/NEO-All.mp4'
+                ]
             }
         };
 
         const isVideo = url => url.toLowerCase().endsWith('.mp4');
 
-        function openProject(id) {
+        // 視圖切換器邏輯
+        window.openProject = function(id) {
             const data = projectsData[id];
             if (!data) return;
 
+            // 1. 隱藏首頁，顯示詳情視圖
             document.getElementById('home-view').style.display = 'none';
             const detailView = document.getElementById('detail-view');
             detailView.classList.add('is-open');
 
+            // 2. 填充文字
             document.getElementById('pv-category').textContent = data.category;
             document.getElementById('pv-title').innerHTML = data.title;
             document.getElementById('pv-subtitle').textContent = data.subtitle;
@@ -516,6 +565,7 @@
             document.getElementById('pv-challenge').textContent = data.challenge;
             document.getElementById('pv-solution').textContent = data.solution;
 
+            // 3. 填充 Hero Media
             const heroContainer = document.getElementById('pv-hero-media');
             if (isVideo(data.heroImg)) {
                 heroContainer.innerHTML = `<video autoplay loop muted playsinline class="w-full h-full object-cover block opacity-90"><source src="${data.heroImg}" type="video/mp4"></video>`;
@@ -523,6 +573,7 @@
                 heroContainer.innerHTML = `<img src="${data.heroImg}" alt="Project Hero" class="w-full h-full object-cover block opacity-90 transition-all duration-700">`;
             }
 
+            // 4. 填充畫廊 (移除黑色背景與邊框)
             const mediaContainer = document.getElementById('pv-media-container');
             mediaContainer.innerHTML = '';
 
@@ -539,13 +590,18 @@
                 let html = `<div class="grid grid-cols-1 md:grid-cols-12 gap-8 mt-16">`;
                 data.gallery.forEach((url, index) => {
                     const colSpan = (index % 2 === 0) ? 'md:col-span-8' : 'md:col-span-4 md:mt-24';
+                    
                     if (isVideo(url)) {
-                        html += `<div class="${colSpan} bg-black aspect-square md:aspect-auto overflow-hidden border border-outline-variant/30 group">
-                            <video autoplay loop muted playsinline class="w-full h-full object-cover block opacity-90 group-hover:scale-105 transition-transform duration-700"><source src="${url}" type="video/mp4"></video>
+                        html += `
+                        <div class="${colSpan} group h-auto">
+                            <video autoplay loop muted playsinline class="w-full h-auto block opacity-90 group-hover:scale-105 transition-transform duration-700">
+                                <source src="${url}" type="video/mp4">
+                            </video>
                         </div>`;
                     } else {
-                        html += `<div class="${colSpan} bg-surface-container-high overflow-hidden border border-outline-variant/30 group">
-                            <img src="${url}" alt="Gallery Image" loading="lazy" class="w-full h-full block object-cover opacity-90 transition-all duration-700">
+                        html += `
+                        <div class="${colSpan} group h-auto">
+                            <img src="${url}" alt="Gallery Image" loading="lazy" class="w-full h-auto block opacity-90 group-hover:scale-105 transition-all duration-700">
                         </div>`;
                     }
                 });
@@ -553,14 +609,16 @@
                 mediaContainer.innerHTML += html;
             }
 
+            // 5. 安全滾動到頂部
             window.scrollTo(0, 0);
             setTimeout(() => { detailView.scrollIntoView({ block: 'start' }); }, 50);
         }
 
-        function closeProject() {
+        window.closeProject = function() {
             const detailView = document.getElementById('detail-view');
             detailView.classList.remove('is-open');
             document.getElementById('home-view').style.display = 'block';
+            
             document.getElementById('pv-hero-media').innerHTML = '';
             document.getElementById('pv-media-container').innerHTML = '';
 
@@ -570,6 +628,7 @@
             }, 50);
         }
 
+        // 回到頂部按鈕邏輯
         const backToTopBtn = document.getElementById('back-to-top');
         setInterval(() => {
             if (!backToTopBtn) return;
