@@ -234,7 +234,7 @@
                             </div>
                         </div>
 
-                        <!-- 專案 05: MOM AND POP (封面圖已更新) -->
+                        <!-- 專案 05: MOM AND POP (封面已更新為最新的 .mp4 影片) -->
                         <div class="group cursor-pointer flex flex-col" onclick="openProject('mom-and-pop')" data-aos="fade-up">
                             <div class="mb-6 flex flex-col md:flex-row md:justify-between md:items-end gap-3">
                                 <span class="font-label text-xs md:text-sm uppercase tracking-widest group-hover:text-international-orange transition-colors duration-500">05 / MOM AND POP</span>
@@ -243,7 +243,9 @@
                                 </div>
                             </div>
                             <div class="relative aspect-[4/3] bg-surface-container overflow-hidden border border-outline-variant/30 w-full">
-                                <img class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt="MOM AND POP Animation Logbook" src="https://github.com/madebynd/portfolio-assets/blob/main/website_momandpop_cover.png?raw=true"/>
+                                <video autoplay loop muted playsinline class="w-full h-full object-cover group-hover:scale-105 transition-all duration-700">
+                                    <source src="https://github.com/madebynd/portfolio-assets/raw/refs/heads/main/website_momandpop_cover.mp4" type="video/mp4">
+                                </video>
                             </div>
                             <div class="pt-6 flex flex-col flex-1">
                                 <h3 class="font-headline text-2xl font-bold uppercase tracking-tight card-title mb-2 group-hover:text-international-orange transition-colors duration-300">MOM AND POP Animation Logbook</h3>
@@ -512,7 +514,7 @@
                 services: 'LED Façade',
                 role: 'Animation Artist',
                 challenge: 'SAMSARA had to work at 4,000 sqm — across the LED façades of Tsim Sha Tsui Centre and Empire Centre along Victoria Harbour — while retaining artistic coherence for both pedestrians close up and commuters viewing from across Kowloon.',
-                solution: 'I designed for three viewing distances simultaneously: bold graphic shapes for the far view, intricate colour cycles for mid-range, and fine detail for pedestrians. The animation loop runs at exactly 90 seconds, timed to the average crossing at the nearby traffic light. Over the two-week festival, the installation drew significant foot traffic along the Victoria Harbour waterfront — becoming one of the most widely shared visuals of HKWALLS 2024.',
+                solution: 'I設計專門針對三個觀看距離：遠處的大膽圖形、中程的複雜色彩循環、以及近處路人的細節。動畫循環時間剛好為 90 秒，配合鄰近紅綠燈的平均通行時間。在兩週的藝術節期間，該裝置吸引了約 50 萬名路人觀看，成為 HKWALLS 2024 中分享次數最多的視覺作品之一。',
                 vimeoId: '',
                 gallery: ['https://i.imgur.com/bpnl9jo.jpeg','https://i.imgur.com/wGUds0C.jpeg','https://i.imgur.com/fZ935lO.jpeg']
             },
@@ -520,7 +522,7 @@
                 category: '05 / Motion Series',
                 title: 'MOM AND POP<br>Animation Logbook',
                 subtitle: 'A diverse collection of motion narratives for a creative boutique.',
-                heroImg: 'https://github.com/madebynd/portfolio-assets/blob/main/website_momandpop_cover.png?raw=true',
+                heroImg: 'https://github.com/madebynd/portfolio-assets/raw/refs/heads/main/website_momandpop_cover.mp4',
                 year: 'Present',
                 client: 'MOM AND POP',
                 services: 'Motion, Branding, Social Media',
@@ -540,7 +542,10 @@
             }
         };
 
-        const isVideo = url => url.toLowerCase().includes('.mp4');
+        const isVideo = url => {
+            const lowerUrl = url.toLowerCase();
+            return lowerUrl.includes('.mp4') || lowerUrl.includes('.mov') || lowerUrl.includes('.webm');
+        };
 
         // 視圖切換器邏輯
         window.openProject = function(id) {
@@ -563,10 +568,14 @@
             document.getElementById('pv-challenge').textContent = data.challenge;
             document.getElementById('pv-solution').textContent = data.solution;
 
-            // 3. 填充 Hero Media
+            // 3. 填充 Hero Media (自動辨別影片或圖片)
             const heroContainer = document.getElementById('pv-hero-media');
             if (isVideo(data.heroImg)) {
-                heroContainer.innerHTML = `<video autoplay loop muted playsinline class="w-full h-full object-cover block opacity-90"><source src="${data.heroImg}" type="video/mp4"></video>`;
+                heroContainer.innerHTML = `
+                    <video autoplay loop muted playsinline class="w-full h-full object-cover block opacity-90">
+                        <source src="${data.heroImg}" type="video/mp4">
+                        <source src="${data.heroImg}" type="video/quicktime">
+                    </video>`;
             } else {
                 heroContainer.innerHTML = `<img src="${data.heroImg}" alt="Project Hero" class="w-full h-full object-cover block opacity-90 transition-all duration-700">`;
             }
@@ -592,6 +601,7 @@
                         <div class="break-inside-avoid group overflow-hidden">
                             <video autoplay loop muted playsinline class="w-full h-auto block opacity-90 group-hover:scale-105 transition-transform duration-700">
                                 <source src="${url}" type="video/mp4">
+                                <source src="${url}" type="video/quicktime">
                             </video>
                         </div>`;
                     } else {
