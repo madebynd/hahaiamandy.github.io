@@ -8,6 +8,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- AOS Animation Library CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     
@@ -139,14 +141,14 @@
             <!-- ── HERO ── -->
             <section id="top" class="px-8 max-w-screen-2xl mx-auto mb-32 md:mb-52" style="scroll-margin-top: 100px;">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
-                    <div class="md:col-span-8">
+                    <div class="md:col-span-8" data-aos="fade-up" data-aos-duration="1000">
                         <span class="font-label text-xs tracking-[0.3em] uppercase text-international-orange mb-8 block">SYS_LOC: VANCOUVER / AVAILABILITY: TRUE</span>
                         <h1 class="font-headline text-5xl md:text-[8rem] lg:text-[9rem] leading-[0.85] font-bold tracking-tighter text-black uppercase">
                             NOT A <span class="text-stone-300">DESIGNER,</span><br/>
                             BUT AN <span class="text-international-orange">EXPLORER.</span>
                         </h1>
                     </div>
-                    <div class="md:col-span-4 flex flex-col items-start md:items-end">
+                    <div class="md:col-span-4 flex flex-col items-start md:items-end" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                         <p class="font-label text-xs tracking-widest text-secondary uppercase md:text-right leading-relaxed max-w-[280px]">
                             Translating complex brand challenges into clear, functional expeditions. Blending international grit with purposeful visual destinations.
                         </p>
@@ -157,7 +159,7 @@
             <!-- ── WORK ── -->
             <section id="work" class="bg-surface-container-low py-24 md:py-40" style="scroll-margin-top: 52px;">
                 <div class="px-8 max-w-screen-2xl mx-auto">
-                    <div class="flex justify-between items-baseline mb-20 border-b border-outline-variant/30 pb-8">
+                    <div class="flex justify-between items-baseline mb-20 border-b border-outline-variant/30 pb-8" data-aos="fade-right">
                         <h2 class="font-headline text-3xl md:text-5xl font-medium uppercase tracking-tight">Expeditions</h2>
                         <span class="font-label text-[10px] tracking-[0.2em] text-secondary uppercase">04 Active Projects</span>
                     </div>
@@ -165,7 +167,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-24">
                         
                         <!-- Project 01 -->
-                        <div class="group cursor-pointer flex flex-col" onclick="openProject('scmp-lighthouse')">
+                        <div class="group cursor-pointer flex flex-col" onclick="openProject('scmp-lighthouse')" data-aos="fade-up">
                             <div class="mb-6 flex flex-col md:flex-row md:justify-between md:items-end gap-3">
                                 <span class="font-label text-xs md:text-sm uppercase tracking-widest group-hover:text-international-orange transition-colors duration-500">01 / SCMP LIGHTHOUSE</span>
                                 <div class="flex items-center gap-2">
@@ -182,7 +184,7 @@
                         </div>
 
                         <!-- Project 02 -->
-                        <div class="group cursor-pointer flex flex-col" onclick="openProject('tai-kwun')">
+                        <div class="group cursor-pointer flex flex-col" onclick="openProject('tai-kwun')" data-aos="fade-up" data-aos-delay="100">
                             <div class="mb-6 flex flex-col md:flex-row md:justify-between md:items-end gap-3">
                                 <span class="font-label text-xs md:text-sm uppercase tracking-widest group-hover:text-international-orange transition-colors duration-500">02 / TAI KWUN</span>
                                 <div class="flex items-center gap-2">
@@ -199,7 +201,7 @@
                         </div>
 
                         <!-- Project 03 -->
-                        <div class="group cursor-pointer flex flex-col" onclick="openProject('cosmo-beauty')">
+                        <div class="group cursor-pointer flex flex-col" onclick="openProject('cosmo-beauty')" data-aos="fade-up">
                             <div class="mb-6 flex flex-col md:flex-row md:justify-between md:items-end gap-3">
                                 <span class="font-label text-xs md:text-sm uppercase tracking-widest group-hover:text-international-orange transition-colors duration-500">03 / BEST OF THE BEST</span>
                                 <div class="flex items-center gap-2">
@@ -216,7 +218,7 @@
                         </div>
 
                         <!-- Project 04 -->
-                        <div class="group cursor-pointer flex flex-col" onclick="openProject('hkwalls')">
+                        <div class="group cursor-pointer flex flex-col" onclick="openProject('hkwalls')" data-aos="fade-up" data-aos-delay="100">
                             <div class="mb-6 flex flex-col md:flex-row md:justify-between md:items-end gap-3">
                                 <span class="font-label text-xs md:text-sm uppercase tracking-widest group-hover:text-international-orange transition-colors duration-500">04 / HKWALLS SAMSARA</span>
                                 <div class="flex items-center gap-2">
@@ -239,10 +241,10 @@
             <!-- ── PROFILE / ABOUT ── -->
             <section id="about" class="px-8 max-w-screen-2xl mx-auto py-32 md:py-48" style="scroll-margin-top: 52px;">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-16 md:gap-24 mb-40">
-                    <div class="md:col-span-5 aspect-[3/4] bg-surface-container-highest overflow-hidden border border-outline-variant/30">
+                    <div class="md:col-span-5 aspect-[3/4] bg-surface-container-highest overflow-hidden border border-outline-variant/30" data-aos="reveal-left" data-aos-duration="1200">
                         <!-- Profile Image Placeholder -->
                     </div>
-                    <div class="md:col-span-7 flex flex-col justify-center">
+                    <div class="md:col-span-7 flex flex-col justify-center" data-aos="fade-left" data-aos-duration="1000">
                         <div class="max-w-xl">
                             <label class="font-label text-[10px] tracking-[0.3em] uppercase text-international-orange mb-12 block">01 / NARRATIVE</label>
                             <h2 class="font-headline text-3xl md:text-5xl font-medium tracking-tight text-black mb-10 leading-tight">
@@ -259,23 +261,23 @@
 
                 <div class="border-t border-outline-variant/30 pt-16">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                        <div class="md:col-span-4">
+                        <div class="md:col-span-4" data-aos="fade-right">
                             <label class="font-label text-[10px] tracking-[0.3em] uppercase text-international-orange sticky top-32">02 / CORE EXPERTISE</label>
                         </div>
                         <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-12 md:gap-x-24 md:gap-y-24">
-                            <div>
+                            <div data-aos="fade-up">
                                 <h3 class="font-headline text-xl font-bold uppercase tracking-tight mb-4 flex items-center gap-3"><span class="w-1.5 h-1.5 bg-international-orange inline-block"></span>Brand Identity</h3>
                                 <p class="text-secondary text-sm leading-relaxed">Crafting resonant brand systems through the lens of a maker. Building frameworks that breathe life into static identities.</p>
                             </div>
-                            <div>
+                            <div data-aos="fade-up" data-aos-delay="100">
                                 <h3 class="font-headline text-xl font-bold uppercase tracking-tight mb-4 flex items-center gap-3"><span class="w-1.5 h-1.5 bg-international-orange inline-block"></span>Motion Graphics</h3>
                                 <p class="text-secondary text-sm leading-relaxed">Developing fluid, dynamic visual narratives. Specializing in kinetic typography and immersive storytelling.</p>
                             </div>
-                            <div>
+                            <div data-aos="fade-up">
                                 <h3 class="font-headline text-xl font-bold uppercase tracking-tight mb-4 flex items-center gap-3"><span class="w-1.5 h-1.5 bg-international-orange inline-block"></span>UI / UX Design</h3>
                                 <p class="text-secondary text-sm leading-relaxed">Structural design for digital platforms. Prioritizing clear information hierarchy and intuitive user journeys.</p>
                             </div>
-                            <div>
+                            <div data-aos="fade-up" data-aos-delay="100">
                                 <h3 class="font-headline text-xl font-bold uppercase tracking-tight mb-4 flex items-center gap-3"><span class="w-1.5 h-1.5 bg-international-orange inline-block"></span>Digital Strategy</h3>
                                 <p class="text-secondary text-sm leading-relaxed">Translating brand objectives into engaging, short-form digital experiences and comprehensive social content.</p>
                             </div>
@@ -288,10 +290,10 @@
             <section id="contact" class="bg-surface-container-low py-20 md:py-24" style="scroll-margin-top: 52px;">
                 <div class="px-8 max-w-screen-2xl mx-auto">
                     <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-                        <div class="md:col-span-4">
+                        <div class="md:col-span-4" data-aos="fade-right">
                             <label class="font-label text-[10px] tracking-[0.3em] uppercase text-international-orange sticky top-32">03 / CONNECTIVITY</label>
                         </div>
-                        <div class="md:col-start-8 md:col-span-5 flex flex-col gap-8 md:gap-10">
+                        <div class="md:col-start-8 md:col-span-5 flex flex-col gap-8 md:gap-10" data-aos="fade-up">
                             <!-- Direct Inquiries -->
                             <section>
                                 <h3 class="font-label text-[10px] tracking-[0.3em] uppercase text-secondary mb-3">MAIL</h3>
@@ -410,7 +412,19 @@
         </footer>
     </div>
 
+    <!-- AOS Animation Library JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Initialize AOS
+        window.onload = function() {
+            AOS.init({
+                duration: 800,
+                once: true,
+                offset: 100,
+                easing: 'ease-out-quad'
+            });
+        };
+
         function scrollToSection(id) {
             const detailView = document.getElementById('detail-view');
             if (detailView.classList.contains('is-open')) {
@@ -549,6 +563,7 @@
             document.getElementById('home-view').style.display = 'block';
             document.getElementById('pv-hero-media').innerHTML = '';
             document.getElementById('pv-media-container').innerHTML = '';
+
             setTimeout(() => {
                 const workSec = document.getElementById('work');
                 if (workSec) workSec.scrollIntoView({ block: 'start' });
